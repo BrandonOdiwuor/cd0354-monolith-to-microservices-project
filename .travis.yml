@@ -18,19 +18,19 @@ script:
 
   # Build udagram-api-feed image
   - docker build -t udagram-api-feed udagram-api-feed/
-  - docker tag simple-node brandonodiwuor/udagram-api-feed:latest
+  - docker tag udagram-api-feed brandonodiwuor/udagram-api-feed:latest
 
   # Build udagram-api-user image
   - docker build -t udagram-api-user udagram-api-user/
-  - docker tag simple-node brandonodiwuor/udagram-api-user:latest
+  - docker tag udagram-api-user brandonodiwuor/udagram-api-user:latest
 
   # Build reverseproxy image
   - docker build -t reverseproxy udagram-reverseproxy/
-  - docker tag simple-node brandonodiwuor/reverseproxy:latest
+  - docker tag reverseproxy brandonodiwuor/reverseproxy:latest
 
   # Build udagram-frontend image
   - docker build -t udagram-frontend udagram-frontend/
-  - docker tag simple-node brandonodiwuor/udagram-frontend:latest
+  - docker tag udagram-frontend brandonodiwuor/udagram-frontend:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
